@@ -14,6 +14,9 @@ public interface RespositoryLivros extends JpaRepository<LivroClass, Long>{
     // procurar autor por meio do livro
    //c void procurarAutorPorLivro();
 
-   
+   public List<LivroClass> findByTitulo(String titulo);
+
+//    @Query("SELECT L from LivroClass L WHERE :idioma MEMBER OF L.idiomas")
+//    public List<LivroClass> listarLivrosEmDeterminadoIdioma(String idioma);
 
 }

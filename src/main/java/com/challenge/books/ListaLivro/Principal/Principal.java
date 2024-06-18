@@ -73,6 +73,9 @@ public class Principal {
                     break;
                 case 5:
                     System.out.println("Listar livros em um determinado idioma");
+                    System.out.println("Digite o idioma: ");
+                    nomeLivro = scanner.nextLine();
+                    listarLivrosEmUmIdioma(nomeLivro);
                     break;
                 case 6:
                     System.out.println("Saindo...");
