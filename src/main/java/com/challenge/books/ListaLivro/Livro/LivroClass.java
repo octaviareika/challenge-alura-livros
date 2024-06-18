@@ -94,7 +94,8 @@ public class LivroClass {
 
     @Override
     public String toString() {
-        return "LivroClass [autores=" + autores + ", idiomas=" + idiomas + ", titulo=" + titulo
-                + "]";
+        return "autores=" + autores + ", idiomas=" + idiomas + ", titulo=" + titulo
+        // barra n = quebra de linha
+        + "\n";
     }
 }
