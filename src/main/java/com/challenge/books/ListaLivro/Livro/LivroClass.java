@@ -35,7 +35,10 @@ public class LivroClass {
         this.idLivro = livro.id();
         this.titulo = livro.titulo();
         for (Autor autor : livro.autores()) {
-            this.autores.add(new AutorClass(autor.name(), autor.birth_year(), autor.death_year()));
+            AutorClass autorClass = new AutorClass(autor.name(), autor.birth_year(), autor.death_year());
+            autorClass.setLivro(this);
+            this.autores.add(autorClass);
+            
         }
         this.idiomas = livro.idiomas();
     }

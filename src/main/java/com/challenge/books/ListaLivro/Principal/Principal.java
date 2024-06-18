@@ -66,11 +66,10 @@ public class Principal {
                     break;
                 case 4:
                     System.out.println("Listar autores vivos em um determinado período");
-                    System.out.println("Digite o ano de início: ");
+                    System.out.println("Digite o ano: ");
                     int anoInicio = scanner.nextInt();
-                    System.out.println("Digite o ano de fim: ");
-                    int anoFim = scanner.nextInt();
-                    listarAutoresVivosEmDeterminadoPeriodo(anoInicio, anoFim);
+        
+                    listarAutoresVivosEmDeterminadoPeriodo(anoInicio);
                     break;
                 case 5:
                     System.out.println("Listar livros em um determinado idioma");
@@ -100,12 +99,12 @@ public class Principal {
         System.out.println(autores.toString());        
     }
 
-    public void listarAutoresVivosEmDeterminadoPeriodo(int anoInicio, int anoFim){
+    public void listarAutoresVivosEmDeterminadoPeriodo(int anoTotal){
         System.out.println("Listar autores vivos em um determinado período");
 
         List<AutorClass> autores = respositoryLivros.findAll().stream()
                 .flatMap(livro -> livro.getAutores().stream().
-                        filter(autor -> autor.getBirth_year() >= anoInicio && autor.getDeath_year() <= anoFim)).toList();
+                        filter(autor -> autor.getDeath_year() > anoTotal)).toList();
 
         if (autores.isEmpty()){
             System.out.println("Nenhum autor encontrado!");
